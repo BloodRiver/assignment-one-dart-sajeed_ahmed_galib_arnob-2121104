@@ -14,7 +14,7 @@ import 'dart:math';
 void main() {
   // 1. Create a List<String> of student names: ["Alice", "Bob", "Charlie", "Diana", "Eve"]
   // TODO: Create the student names list
-  List<String> studentNames = [];
+  List<String> studentNames = ["Alice", "Bob", "Charlie", "Diana", "Eve"];
 
   // 2. Create a Map<String, int> to store student scores
   // TODO: Create the scores map
@@ -22,6 +22,10 @@ void main() {
 
   // 3. Use a for loop to assign random scores (60-100) to each student
   // TODO: Implement the for loop to assign random scores
+
+  for (String eachStudent in studentNames) {
+    studentScores.addAll({eachStudent: Random().nextInt(100)});
+  }
 
   // 4. Find and display:
   //    - The student with the highest score
@@ -36,6 +40,22 @@ void main() {
 
   // TODO: Add your logic here
 
+  for (MapEntry<String, int> eachScore in studentScores.entries) {
+    if (eachScore.value > highestScore) {
+      highestScore = eachScore.value;
+      highestStudent = eachScore.key;
+    }
+
+    if (eachScore.value < lowestScore) {
+      lowestScore = eachScore.value;
+      lowestStudent = eachScore.key;
+    }
+
+    averageScore += eachScore.value;
+  }
+
+  averageScore /= studentNames.length;
+
   print("Student Scores: $studentScores");
   print("Highest Score: $highestStudent with $highestScore");
   print("Lowest Score: $lowestStudent with $lowestScore");
@@ -49,9 +69,28 @@ void main() {
   // TODO: Implement the switch statement for each student
   for (String student in studentNames) {
     int score = studentScores[student] ?? 0;
+
     String category = "";
 
     // TODO: Add your switch statement here
+    switch (score) {
+      case (>= 90 && <= 100):
+        {
+          category = 'Excellent';
+        }
+      case (>= 80 && < 90):
+        {
+          category = 'Good';
+        }
+      case (>= 70 && < 80):
+        {
+          category = 'Average';
+        }
+      default:
+        {
+          category = 'Needs Improvement';
+        }
+    }
 
     print("$student: $score ($category)");
   }

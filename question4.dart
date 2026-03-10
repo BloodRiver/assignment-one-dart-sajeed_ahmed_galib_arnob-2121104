@@ -18,6 +18,7 @@
 //    - Abstract method: void start()
 //    - Abstract method: void stop()
 //    - Concrete method: void displayInfo()
+
 abstract class Vehicle {
   String brand;
   String model;
@@ -32,12 +33,14 @@ abstract class Vehicle {
   // Concrete method
   void displayInfo() {
     // TODO: Display vehicle information
+    print('Vehicle Info: $year $brand $model');
   }
 
   // Add a method to calculate vehicle age (current year - vehicle year)
   int calculateAge() {
     // TODO: Calculate and return vehicle age
-    return 0;
+    DateTime current = DateTime.now();
+    return current.year - year;
   }
 }
 
@@ -54,16 +57,19 @@ class Car extends Vehicle {
   @override
   void start() {
     // TODO: Implement car start method
+    print('Starting the car engine...');
   }
 
   @override
   void stop() {
     // TODO: Implement car stop method
+    print('Stopping the car engine...');
   }
 
   @override
   void displayInfo() {
     // TODO: Override to show car-specific info as shown in expected output
+    print('Vehicle Info: $year $brand $model ($numberOfDoors doors)');
   }
 }
 
@@ -79,24 +85,37 @@ class Motorcycle extends Vehicle {
   @override
   void start() {
     // TODO: Implement motorcycle start method
+    print('Starting the motorcyle...');
   }
 
   @override
   void stop() {
     // TODO: Implement motorcycle stop method
+    print('Stopping the motorcycle...');
   }
 
   @override
   void displayInfo() {
     // TODO: Override to show motorcycle-specific info as shown in expected output
+    print('Vehicle Info: $year $brand $model (Has windshield: $hasWindshield)');
   }
 }
 
 void main() {
   // 3. Create a list of vehicles and demonstrate polymorphism by calling start(), stop(), and displayInfo() on each vehicle
   // TODO: Create a list containing one Car and one Motorcycle
+  List<Vehicle> vehicles = [
+    Car('Totoya', 'Camry', 2020, 4),
+    Motorcycle('Honda', 'CBR', 2021, true)
+  ];
 
   // TODO: Loop through the list and call displayInfo(), start(), and stop()
+  for (Vehicle eachVehicle in vehicles) {
+    eachVehicle.displayInfo();
+  }
 
   // TODO: Print the age of each vehicle using calculateAge()
+  for (Vehicle eachVehicle in vehicles) {
+    eachVehicle.calculateAge();
+  }
 }

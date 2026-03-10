@@ -190,12 +190,12 @@ assignment-one-dart-YOUR_NAME-YOUR_IUB_ID/
 
 ## 🚀 Submission Checklist
 
-- [ ] Forked and created your own naming-compliant repository.
-- [ ] Completed implementations for all 5 questions.
-- [ ] Output for each question matches the **EXPECTED OUTPUT** header.
-- [ ] All tests pass when running `dart test test/all_tests.dart`.
-- [ ] Screenshot `test-results.png` showing all tests passing is in the root directory.
-- [ ] Pushed all changes to GitHub and repository is **Public**.
+- [x] Forked and created your own naming-compliant repository.
+- [x] Completed implementations for all 5 questions.
+- [x] Output for each question matches the **EXPECTED OUTPUT** header.
+- [x] All tests pass when running `dart test test/all_tests.dart`.
+- [x] Screenshot `test-results.png` showing all tests passing is in the root directory.
+- [x] Pushed all changes to GitHub and repository is **Public**.
 
 ---
 
